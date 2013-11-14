@@ -1,11 +1,17 @@
 require './numberguesser'
 
-describe "#is_a_teenager?" do
-  it "returns false if the person is younger than 13" do
-    is_a_teenager?(12).should eq(false)
+describe NumberGuesser, "#generate" do
+
+  it "should return an integer" do
+    expect(NumberGuesser.new.generate).to be_a(Integer)
   end
 
-  it "returns false if the person is older than 19" do
-    is_a_teenager?(20).should eq(false)
+  it "should return a number greater than 0" do
+    NumberGuesser.new.generate.should be > 0
   end
- end
+
+  it "should return a number less than 100" do
+    NumberGuesser.new.generate.should be < 100
+  end
+
+end
